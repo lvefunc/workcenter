@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="model" nsURI="http://www.example.org/model" nsPrefix="model">
+  <eClassifiers xsi:type="ecore:EClass" name="Workcenter">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="materialWarehouse" lowerBound="1"
+        eType="#//MaterialWarehouse"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="productWarehouse" lowerBound="1"
+        eType="#//ProductWarehouse"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="productSpecifications"
+        upperBound="-1" eType="#//ProductSpecification"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MaterialWarehouse" eSuperTypes="#//Warehouse">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="materialStorage" lowerBound="1"
+        eType="#//MaterialStorage"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MaterialStorage" eSuperTypes="#//Storage">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="materials" upperBound="-1"
+        eType="#//Material"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Material">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Warehouse" abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Storage" abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ProductWarehouse" eSuperTypes="#//Warehouse">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="productStorage" lowerBound="1"
+        eType="#//ProductStorage"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProductStorage" eSuperTypes="#//Storage">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="products" upperBound="-1"
+        eType="#//Product"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Product">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProductSpecification">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="product" lowerBound="1"
+        eType="#//Product"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="material" lowerBound="1"
+        eType="#//Material"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="amount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+</ecore:EPackage>

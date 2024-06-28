@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/com.lvefunc.workcenter.model/src-gen" creationIcons="false"
+    editDirectory="/com.lvefunc.workcenter.model.edit/src-gen" editorDirectory="/com.lvefunc.workcenter.model.editor/src-gen"
+    modelPluginID="com.lvefunc.workcenter.model" modelName="Model" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="17.0"
+    copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>model.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="Model" basePackage="com.lvefunc.workcenter" disposableProviderFactory="true"
+      ecorePackage="model.ecore#/">
+    <genClasses ecoreClass="model.ecore#//Workcenter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Workcenter/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Workcenter/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//Workcenter/materialWarehouse"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//Workcenter/productWarehouse"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//Workcenter/productSpecifications"/>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//MaterialWarehouse">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//MaterialWarehouse/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//MaterialWarehouse/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//MaterialWarehouse/materialStorage"/>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//MaterialStorage">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//MaterialStorage/materials"/>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//Material">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Material/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Material/name"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="model.ecore#//Warehouse"/>
+    <genClasses image="false" ecoreClass="model.ecore#//Storage"/>
+    <genClasses ecoreClass="model.ecore#//ProductWarehouse">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//ProductWarehouse/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//ProductWarehouse/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//ProductWarehouse/productStorage"/>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//ProductStorage">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//ProductStorage/products"/>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//Product">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Product/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Product/name"/>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//ProductSpecification">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//ProductSpecification/product"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//ProductSpecification/material"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//ProductSpecification/amount"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
