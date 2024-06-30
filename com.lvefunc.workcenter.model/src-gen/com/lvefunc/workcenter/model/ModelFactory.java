@@ -94,6 +94,24 @@ public interface ModelFactory extends EFactory {
 	ProductSpecification createProductSpecification();
 
 	/**
+	 * Returns a new object of class '<em>Material Storage Entry</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Material Storage Entry</em>'.
+	 * @generated
+	 */
+	MaterialStorageEntry createMaterialStorageEntry();
+
+	/**
+	 * Returns a new object of class '<em>Product Storage Entry</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Product Storage Entry</em>'.
+	 * @generated
+	 */
+	ProductStorageEntry createProductStorageEntry();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

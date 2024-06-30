@@ -3,9 +3,9 @@
 package com.lvefunc.workcenter.model.impl;
 
 import com.lvefunc.workcenter.model.ModelPackage;
-import com.lvefunc.workcenter.model.Product;
 import com.lvefunc.workcenter.model.ProductStorage;
 
+import com.lvefunc.workcenter.model.ProductStorageEntry;
 import java.util.Collection;
 
 import org.eclipse.emf.common.util.EList;
@@ -24,21 +24,21 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.lvefunc.workcenter.model.impl.ProductStorageImpl#getProducts <em>Products</em>}</li>
+ *   <li>{@link com.lvefunc.workcenter.model.impl.ProductStorageImpl#getProductStorageEntries <em>Product Storage Entries</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ProductStorageImpl extends MinimalEObjectImpl.Container implements ProductStorage {
 	/**
-	 * The cached value of the '{@link #getProducts() <em>Products</em>}' reference list.
+	 * The cached value of the '{@link #getProductStorageEntries() <em>Product Storage Entries</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getProducts()
+	 * @see #getProductStorageEntries()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Product> products;
+	protected EList<ProductStorageEntry> productStorageEntries;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -65,11 +65,12 @@ public class ProductStorageImpl extends MinimalEObjectImpl.Container implements 
 	 * @generated
 	 */
 	@Override
-	public EList<Product> getProducts() {
-		if (products == null) {
-			products = new EObjectResolvingEList<Product>(Product.class, this, ModelPackage.PRODUCT_STORAGE__PRODUCTS);
+	public EList<ProductStorageEntry> getProductStorageEntries() {
+		if (productStorageEntries == null) {
+			productStorageEntries = new EObjectResolvingEList<ProductStorageEntry>(ProductStorageEntry.class, this,
+					ModelPackage.PRODUCT_STORAGE__PRODUCT_STORAGE_ENTRIES);
 		}
-		return products;
+		return productStorageEntries;
 	}
 
 	/**
@@ -80,8 +81,8 @@ public class ProductStorageImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case ModelPackage.PRODUCT_STORAGE__PRODUCTS:
-			return getProducts();
+		case ModelPackage.PRODUCT_STORAGE__PRODUCT_STORAGE_ENTRIES:
+			return getProductStorageEntries();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -95,9 +96,9 @@ public class ProductStorageImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case ModelPackage.PRODUCT_STORAGE__PRODUCTS:
-			getProducts().clear();
-			getProducts().addAll((Collection<? extends Product>) newValue);
+		case ModelPackage.PRODUCT_STORAGE__PRODUCT_STORAGE_ENTRIES:
+			getProductStorageEntries().clear();
+			getProductStorageEntries().addAll((Collection<? extends ProductStorageEntry>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -111,8 +112,8 @@ public class ProductStorageImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case ModelPackage.PRODUCT_STORAGE__PRODUCTS:
-			getProducts().clear();
+		case ModelPackage.PRODUCT_STORAGE__PRODUCT_STORAGE_ENTRIES:
+			getProductStorageEntries().clear();
 			return;
 		}
 		super.eUnset(featureID);
@@ -126,8 +127,8 @@ public class ProductStorageImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case ModelPackage.PRODUCT_STORAGE__PRODUCTS:
-			return products != null && !products.isEmpty();
+		case ModelPackage.PRODUCT_STORAGE__PRODUCT_STORAGE_ENTRIES:
+			return productStorageEntries != null && !productStorageEntries.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

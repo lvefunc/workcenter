@@ -251,13 +251,13 @@ public interface ModelPackage extends EPackage {
 	int MATERIAL_STORAGE = 2;
 
 	/**
-	 * The feature id for the '<em><b>Materials</b></em>' reference list.
+	 * The feature id for the '<em><b>Material Storage Entries</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MATERIAL_STORAGE__MATERIALS = STORAGE_FEATURE_COUNT + 0;
+	int MATERIAL_STORAGE__MATERIAL_STORAGE_ENTRIES = STORAGE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Material Storage</em>' class.
@@ -389,13 +389,13 @@ public interface ModelPackage extends EPackage {
 	int PRODUCT_STORAGE = 7;
 
 	/**
-	 * The feature id for the '<em><b>Products</b></em>' reference list.
+	 * The feature id for the '<em><b>Product Storage Entries</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PRODUCT_STORAGE__PRODUCTS = STORAGE_FEATURE_COUNT + 0;
+	int PRODUCT_STORAGE__PRODUCT_STORAGE_ENTRIES = STORAGE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Product Storage</em>' class.
@@ -517,6 +517,126 @@ public interface ModelPackage extends EPackage {
 	int PRODUCT_SPECIFICATION_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link com.lvefunc.workcenter.model.StorageEntry <em>Storage Entry</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.lvefunc.workcenter.model.StorageEntry
+	 * @see com.lvefunc.workcenter.model.impl.ModelPackageImpl#getStorageEntry()
+	 * @generated
+	 */
+	int STORAGE_ENTRY = 11;
+
+	/**
+	 * The number of structural features of the '<em>Storage Entry</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STORAGE_ENTRY_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Storage Entry</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STORAGE_ENTRY_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link com.lvefunc.workcenter.model.impl.MaterialStorageEntryImpl <em>Material Storage Entry</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.lvefunc.workcenter.model.impl.MaterialStorageEntryImpl
+	 * @see com.lvefunc.workcenter.model.impl.ModelPackageImpl#getMaterialStorageEntry()
+	 * @generated
+	 */
+	int MATERIAL_STORAGE_ENTRY = 10;
+
+	/**
+	 * The feature id for the '<em><b>Amount</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATERIAL_STORAGE_ENTRY__AMOUNT = STORAGE_ENTRY_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Material</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATERIAL_STORAGE_ENTRY__MATERIAL = STORAGE_ENTRY_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Material Storage Entry</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATERIAL_STORAGE_ENTRY_FEATURE_COUNT = STORAGE_ENTRY_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Material Storage Entry</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATERIAL_STORAGE_ENTRY_OPERATION_COUNT = STORAGE_ENTRY_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.lvefunc.workcenter.model.impl.ProductStorageEntryImpl <em>Product Storage Entry</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.lvefunc.workcenter.model.impl.ProductStorageEntryImpl
+	 * @see com.lvefunc.workcenter.model.impl.ModelPackageImpl#getProductStorageEntry()
+	 * @generated
+	 */
+	int PRODUCT_STORAGE_ENTRY = 12;
+
+	/**
+	 * The feature id for the '<em><b>Amount</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRODUCT_STORAGE_ENTRY__AMOUNT = STORAGE_ENTRY_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Product</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRODUCT_STORAGE_ENTRY__PRODUCT = STORAGE_ENTRY_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Product Storage Entry</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRODUCT_STORAGE_ENTRY_FEATURE_COUNT = STORAGE_ENTRY_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Product Storage Entry</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRODUCT_STORAGE_ENTRY_OPERATION_COUNT = STORAGE_ENTRY_OPERATION_COUNT + 0;
+
+	/**
 	 * Returns the meta object for class '{@link com.lvefunc.workcenter.model.Workcenter <em>Workcenter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -635,15 +755,15 @@ public interface ModelPackage extends EPackage {
 	EClass getMaterialStorage();
 
 	/**
-	 * Returns the meta object for the reference list '{@link com.lvefunc.workcenter.model.MaterialStorage#getMaterials <em>Materials</em>}'.
+	 * Returns the meta object for the reference list '{@link com.lvefunc.workcenter.model.MaterialStorage#getMaterialStorageEntries <em>Material Storage Entries</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Materials</em>'.
-	 * @see com.lvefunc.workcenter.model.MaterialStorage#getMaterials()
+	 * @return the meta object for the reference list '<em>Material Storage Entries</em>'.
+	 * @see com.lvefunc.workcenter.model.MaterialStorage#getMaterialStorageEntries()
 	 * @see #getMaterialStorage()
 	 * @generated
 	 */
-	EReference getMaterialStorage_Materials();
+	EReference getMaterialStorage_MaterialStorageEntries();
 
 	/**
 	 * Returns the meta object for class '{@link com.lvefunc.workcenter.model.Material <em>Material</em>}'.
@@ -751,15 +871,15 @@ public interface ModelPackage extends EPackage {
 	EClass getProductStorage();
 
 	/**
-	 * Returns the meta object for the reference list '{@link com.lvefunc.workcenter.model.ProductStorage#getProducts <em>Products</em>}'.
+	 * Returns the meta object for the reference list '{@link com.lvefunc.workcenter.model.ProductStorage#getProductStorageEntries <em>Product Storage Entries</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Products</em>'.
-	 * @see com.lvefunc.workcenter.model.ProductStorage#getProducts()
+	 * @return the meta object for the reference list '<em>Product Storage Entries</em>'.
+	 * @see com.lvefunc.workcenter.model.ProductStorage#getProductStorageEntries()
 	 * @see #getProductStorage()
 	 * @generated
 	 */
-	EReference getProductStorage_Products();
+	EReference getProductStorage_ProductStorageEntries();
 
 	/**
 	 * Returns the meta object for class '{@link com.lvefunc.workcenter.model.Product <em>Product</em>}'.
@@ -835,6 +955,80 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getProductSpecification_Amount();
+
+	/**
+	 * Returns the meta object for class '{@link com.lvefunc.workcenter.model.MaterialStorageEntry <em>Material Storage Entry</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Material Storage Entry</em>'.
+	 * @see com.lvefunc.workcenter.model.MaterialStorageEntry
+	 * @generated
+	 */
+	EClass getMaterialStorageEntry();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.lvefunc.workcenter.model.MaterialStorageEntry#getAmount <em>Amount</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Amount</em>'.
+	 * @see com.lvefunc.workcenter.model.MaterialStorageEntry#getAmount()
+	 * @see #getMaterialStorageEntry()
+	 * @generated
+	 */
+	EAttribute getMaterialStorageEntry_Amount();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.lvefunc.workcenter.model.MaterialStorageEntry#getMaterial <em>Material</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Material</em>'.
+	 * @see com.lvefunc.workcenter.model.MaterialStorageEntry#getMaterial()
+	 * @see #getMaterialStorageEntry()
+	 * @generated
+	 */
+	EReference getMaterialStorageEntry_Material();
+
+	/**
+	 * Returns the meta object for class '{@link com.lvefunc.workcenter.model.StorageEntry <em>Storage Entry</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Storage Entry</em>'.
+	 * @see com.lvefunc.workcenter.model.StorageEntry
+	 * @generated
+	 */
+	EClass getStorageEntry();
+
+	/**
+	 * Returns the meta object for class '{@link com.lvefunc.workcenter.model.ProductStorageEntry <em>Product Storage Entry</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Product Storage Entry</em>'.
+	 * @see com.lvefunc.workcenter.model.ProductStorageEntry
+	 * @generated
+	 */
+	EClass getProductStorageEntry();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.lvefunc.workcenter.model.ProductStorageEntry#getAmount <em>Amount</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Amount</em>'.
+	 * @see com.lvefunc.workcenter.model.ProductStorageEntry#getAmount()
+	 * @see #getProductStorageEntry()
+	 * @generated
+	 */
+	EAttribute getProductStorageEntry_Amount();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.lvefunc.workcenter.model.ProductStorageEntry#getProduct <em>Product</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Product</em>'.
+	 * @see com.lvefunc.workcenter.model.ProductStorageEntry#getProduct()
+	 * @see #getProductStorageEntry()
+	 * @generated
+	 */
+	EReference getProductStorageEntry_Product();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -954,12 +1148,12 @@ public interface ModelPackage extends EPackage {
 		EClass MATERIAL_STORAGE = eINSTANCE.getMaterialStorage();
 
 		/**
-		 * The meta object literal for the '<em><b>Materials</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Material Storage Entries</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference MATERIAL_STORAGE__MATERIALS = eINSTANCE.getMaterialStorage_Materials();
+		EReference MATERIAL_STORAGE__MATERIAL_STORAGE_ENTRIES = eINSTANCE.getMaterialStorage_MaterialStorageEntries();
 
 		/**
 		 * The meta object literal for the '{@link com.lvefunc.workcenter.model.impl.MaterialImpl <em>Material</em>}' class.
@@ -1052,12 +1246,12 @@ public interface ModelPackage extends EPackage {
 		EClass PRODUCT_STORAGE = eINSTANCE.getProductStorage();
 
 		/**
-		 * The meta object literal for the '<em><b>Products</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Product Storage Entries</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PRODUCT_STORAGE__PRODUCTS = eINSTANCE.getProductStorage_Products();
+		EReference PRODUCT_STORAGE__PRODUCT_STORAGE_ENTRIES = eINSTANCE.getProductStorage_ProductStorageEntries();
 
 		/**
 		 * The meta object literal for the '{@link com.lvefunc.workcenter.model.impl.ProductImpl <em>Product</em>}' class.
@@ -1118,6 +1312,68 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PRODUCT_SPECIFICATION__AMOUNT = eINSTANCE.getProductSpecification_Amount();
+
+		/**
+		 * The meta object literal for the '{@link com.lvefunc.workcenter.model.impl.MaterialStorageEntryImpl <em>Material Storage Entry</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.lvefunc.workcenter.model.impl.MaterialStorageEntryImpl
+		 * @see com.lvefunc.workcenter.model.impl.ModelPackageImpl#getMaterialStorageEntry()
+		 * @generated
+		 */
+		EClass MATERIAL_STORAGE_ENTRY = eINSTANCE.getMaterialStorageEntry();
+
+		/**
+		 * The meta object literal for the '<em><b>Amount</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MATERIAL_STORAGE_ENTRY__AMOUNT = eINSTANCE.getMaterialStorageEntry_Amount();
+
+		/**
+		 * The meta object literal for the '<em><b>Material</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MATERIAL_STORAGE_ENTRY__MATERIAL = eINSTANCE.getMaterialStorageEntry_Material();
+
+		/**
+		 * The meta object literal for the '{@link com.lvefunc.workcenter.model.StorageEntry <em>Storage Entry</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.lvefunc.workcenter.model.StorageEntry
+		 * @see com.lvefunc.workcenter.model.impl.ModelPackageImpl#getStorageEntry()
+		 * @generated
+		 */
+		EClass STORAGE_ENTRY = eINSTANCE.getStorageEntry();
+
+		/**
+		 * The meta object literal for the '{@link com.lvefunc.workcenter.model.impl.ProductStorageEntryImpl <em>Product Storage Entry</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.lvefunc.workcenter.model.impl.ProductStorageEntryImpl
+		 * @see com.lvefunc.workcenter.model.impl.ModelPackageImpl#getProductStorageEntry()
+		 * @generated
+		 */
+		EClass PRODUCT_STORAGE_ENTRY = eINSTANCE.getProductStorageEntry();
+
+		/**
+		 * The meta object literal for the '<em><b>Amount</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PRODUCT_STORAGE_ENTRY__AMOUNT = eINSTANCE.getProductStorageEntry_Amount();
+
+		/**
+		 * The meta object literal for the '<em><b>Product</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PRODUCT_STORAGE_ENTRY__PRODUCT = eINSTANCE.getProductStorageEntry_Product();
 
 	}
 

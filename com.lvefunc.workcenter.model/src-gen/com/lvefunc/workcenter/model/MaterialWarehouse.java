@@ -26,22 +26,11 @@ public interface MaterialWarehouse extends Warehouse {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Id</em>' attribute.
-	 * @see #setId(int)
 	 * @see com.lvefunc.workcenter.model.ModelPackage#getMaterialWarehouse_Id()
-	 * @model
+	 * @model id="true" changeable="false"
 	 * @generated
 	 */
 	int getId();
-
-	/**
-	 * Sets the value of the '{@link com.lvefunc.workcenter.model.MaterialWarehouse#getId <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Id</em>' attribute.
-	 * @see #getId()
-	 * @generated
-	 */
-	void setId(int value);
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.

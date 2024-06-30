@@ -13,7 +13,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.lvefunc.workcenter.model.MaterialStorage#getMaterials <em>Materials</em>}</li>
+ *   <li>{@link com.lvefunc.workcenter.model.MaterialStorage#getMaterialStorageEntries <em>Material Storage Entries</em>}</li>
  * </ul>
  *
  * @see com.lvefunc.workcenter.model.ModelPackage#getMaterialStorage()
@@ -22,15 +22,15 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface MaterialStorage extends Storage {
 	/**
-	 * Returns the value of the '<em><b>Materials</b></em>' reference list.
-	 * The list contents are of type {@link com.lvefunc.workcenter.model.Material}.
+	 * Returns the value of the '<em><b>Material Storage Entries</b></em>' reference list.
+	 * The list contents are of type {@link com.lvefunc.workcenter.model.MaterialStorageEntry}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Materials</em>' reference list.
-	 * @see com.lvefunc.workcenter.model.ModelPackage#getMaterialStorage_Materials()
+	 * @return the value of the '<em>Material Storage Entries</em>' reference list.
+	 * @see com.lvefunc.workcenter.model.ModelPackage#getMaterialStorage_MaterialStorageEntries()
 	 * @model
 	 * @generated
 	 */
-	EList<Material> getMaterials();
+	EList<MaterialStorageEntry> getMaterialStorageEntries();
 
 } // MaterialStorage

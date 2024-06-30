@@ -5,6 +5,8 @@ package com.lvefunc.workcenter.model.impl;
 import com.lvefunc.workcenter.model.ModelPackage;
 import com.lvefunc.workcenter.model.Product;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -27,6 +29,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * @generated
  */
 public class ProductImpl extends MinimalEObjectImpl.Container implements Product {
+	private static AtomicInteger idCounter = new AtomicInteger();
+
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -74,6 +78,7 @@ public class ProductImpl extends MinimalEObjectImpl.Container implements Product
 	 */
 	protected ProductImpl() {
 		super();
+		this.id = idCounter.getAndIncrement();
 	}
 
 	/**
@@ -94,19 +99,6 @@ public class ProductImpl extends MinimalEObjectImpl.Container implements Product
 	@Override
 	public int getId() {
 		return id;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setId(int newId) {
-		int oldId = id;
-		id = newId;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.PRODUCT__ID, oldId, id));
 	}
 
 	/**
@@ -156,9 +148,6 @@ public class ProductImpl extends MinimalEObjectImpl.Container implements Product
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case ModelPackage.PRODUCT__ID:
-			setId((Integer) newValue);
-			return;
 		case ModelPackage.PRODUCT__NAME:
 			setName((String) newValue);
 			return;
@@ -174,9 +163,6 @@ public class ProductImpl extends MinimalEObjectImpl.Container implements Product
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case ModelPackage.PRODUCT__ID:
-			setId(ID_EDEFAULT);
-			return;
 		case ModelPackage.PRODUCT__NAME:
 			setName(NAME_EDEFAULT);
 			return;

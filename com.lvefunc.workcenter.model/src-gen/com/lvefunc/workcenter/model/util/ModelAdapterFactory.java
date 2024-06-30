@@ -117,6 +117,21 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseMaterialStorageEntry(MaterialStorageEntry object) {
+			return createMaterialStorageEntryAdapter();
+		}
+
+		@Override
+		public Adapter caseStorageEntry(StorageEntry object) {
+			return createStorageEntryAdapter();
+		}
+
+		@Override
+		public Adapter caseProductStorageEntry(ProductStorageEntry object) {
+			return createProductStorageEntryAdapter();
+		}
+
+		@Override
 		public Adapter defaultCase(EObject object) {
 			return createEObjectAdapter();
 		}
@@ -272,6 +287,48 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createProductSpecificationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.lvefunc.workcenter.model.MaterialStorageEntry <em>Material Storage Entry</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.lvefunc.workcenter.model.MaterialStorageEntry
+	 * @generated
+	 */
+	public Adapter createMaterialStorageEntryAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.lvefunc.workcenter.model.StorageEntry <em>Storage Entry</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.lvefunc.workcenter.model.StorageEntry
+	 * @generated
+	 */
+	public Adapter createStorageEntryAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.lvefunc.workcenter.model.ProductStorageEntry <em>Product Storage Entry</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.lvefunc.workcenter.model.ProductStorageEntry
+	 * @generated
+	 */
+	public Adapter createProductStorageEntryAdapter() {
 		return null;
 	}
 

@@ -5,6 +5,8 @@ package com.lvefunc.workcenter.model.impl;
 import com.lvefunc.workcenter.model.Material;
 import com.lvefunc.workcenter.model.ModelPackage;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -13,24 +15,27 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Material</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object
+ * '<em><b>Material</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.lvefunc.workcenter.model.impl.MaterialImpl#getId <em>Id</em>}</li>
- *   <li>{@link com.lvefunc.workcenter.model.impl.MaterialImpl#getName <em>Name</em>}</li>
+ * <li>{@link com.lvefunc.workcenter.model.impl.MaterialImpl#getId
+ * <em>Id</em>}</li>
+ * <li>{@link com.lvefunc.workcenter.model.impl.MaterialImpl#getName
+ * <em>Name</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class MaterialImpl extends MinimalEObjectImpl.Container implements Material {
+	private static AtomicInteger idCounter = new AtomicInteger();
+
 	/**
-	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getId()
 	 * @generated
 	 * @ordered
@@ -38,9 +43,9 @@ public class MaterialImpl extends MinimalEObjectImpl.Container implements Materi
 	protected static final int ID_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getId()
 	 * @generated
 	 * @ordered
@@ -48,9 +53,9 @@ public class MaterialImpl extends MinimalEObjectImpl.Container implements Materi
 	protected int id = ID_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -58,9 +63,9 @@ public class MaterialImpl extends MinimalEObjectImpl.Container implements Materi
 	protected static final String NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -68,17 +73,18 @@ public class MaterialImpl extends MinimalEObjectImpl.Container implements Materi
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected MaterialImpl() {
 		super();
+		this.id = idCounter.getAndIncrement();
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -87,8 +93,8 @@ public class MaterialImpl extends MinimalEObjectImpl.Container implements Materi
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -97,21 +103,8 @@ public class MaterialImpl extends MinimalEObjectImpl.Container implements Materi
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setId(int newId) {
-		int oldId = id;
-		id = newId;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.MATERIAL__ID, oldId, id));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -120,8 +113,8 @@ public class MaterialImpl extends MinimalEObjectImpl.Container implements Materi
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -133,8 +126,8 @@ public class MaterialImpl extends MinimalEObjectImpl.Container implements Materi
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -149,16 +142,13 @@ public class MaterialImpl extends MinimalEObjectImpl.Container implements Materi
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case ModelPackage.MATERIAL__ID:
-			setId((Integer) newValue);
-			return;
 		case ModelPackage.MATERIAL__NAME:
 			setName((String) newValue);
 			return;
@@ -167,16 +157,13 @@ public class MaterialImpl extends MinimalEObjectImpl.Container implements Materi
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case ModelPackage.MATERIAL__ID:
-			setId(ID_EDEFAULT);
-			return;
 		case ModelPackage.MATERIAL__NAME:
 			setName(NAME_EDEFAULT);
 			return;
@@ -185,8 +172,8 @@ public class MaterialImpl extends MinimalEObjectImpl.Container implements Materi
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -201,8 +188,8 @@ public class MaterialImpl extends MinimalEObjectImpl.Container implements Materi
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -219,4 +206,4 @@ public class MaterialImpl extends MinimalEObjectImpl.Container implements Materi
 		return result.toString();
 	}
 
-} //MaterialImpl
+} // MaterialImpl

@@ -13,7 +13,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.lvefunc.workcenter.model.ProductStorage#getProducts <em>Products</em>}</li>
+ *   <li>{@link com.lvefunc.workcenter.model.ProductStorage#getProductStorageEntries <em>Product Storage Entries</em>}</li>
  * </ul>
  *
  * @see com.lvefunc.workcenter.model.ModelPackage#getProductStorage()
@@ -22,15 +22,15 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface ProductStorage extends Storage {
 	/**
-	 * Returns the value of the '<em><b>Products</b></em>' reference list.
-	 * The list contents are of type {@link com.lvefunc.workcenter.model.Product}.
+	 * Returns the value of the '<em><b>Product Storage Entries</b></em>' reference list.
+	 * The list contents are of type {@link com.lvefunc.workcenter.model.ProductStorageEntry}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Products</em>' reference list.
-	 * @see com.lvefunc.workcenter.model.ModelPackage#getProductStorage_Products()
+	 * @return the value of the '<em>Product Storage Entries</em>' reference list.
+	 * @see com.lvefunc.workcenter.model.ModelPackage#getProductStorage_ProductStorageEntries()
 	 * @model
 	 * @generated
 	 */
-	EList<Product> getProducts();
+	EList<ProductStorageEntry> getProductStorageEntries();
 
 } // ProductStorage

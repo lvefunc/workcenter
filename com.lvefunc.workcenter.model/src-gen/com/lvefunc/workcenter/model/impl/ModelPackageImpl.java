@@ -4,14 +4,17 @@ package com.lvefunc.workcenter.model.impl;
 
 import com.lvefunc.workcenter.model.Material;
 import com.lvefunc.workcenter.model.MaterialStorage;
+import com.lvefunc.workcenter.model.MaterialStorageEntry;
 import com.lvefunc.workcenter.model.MaterialWarehouse;
 import com.lvefunc.workcenter.model.ModelFactory;
 import com.lvefunc.workcenter.model.ModelPackage;
 import com.lvefunc.workcenter.model.Product;
 import com.lvefunc.workcenter.model.ProductSpecification;
 import com.lvefunc.workcenter.model.ProductStorage;
+import com.lvefunc.workcenter.model.ProductStorageEntry;
 import com.lvefunc.workcenter.model.ProductWarehouse;
 import com.lvefunc.workcenter.model.Storage;
+import com.lvefunc.workcenter.model.StorageEntry;
 import com.lvefunc.workcenter.model.Warehouse;
 import com.lvefunc.workcenter.model.Workcenter;
 
@@ -98,6 +101,27 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * @generated
 	 */
 	private EClass productSpecificationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass materialStorageEntryEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass storageEntryEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass productStorageEntryEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -279,7 +303,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getMaterialStorage_Materials() {
+	public EReference getMaterialStorage_MaterialStorageEntries() {
 		return (EReference) materialStorageEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -389,7 +413,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getProductStorage_Products() {
+	public EReference getProductStorage_ProductStorageEntries() {
 		return (EReference) productStorageEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -469,6 +493,76 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getMaterialStorageEntry() {
+		return materialStorageEntryEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMaterialStorageEntry_Amount() {
+		return (EAttribute) materialStorageEntryEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getMaterialStorageEntry_Material() {
+		return (EReference) materialStorageEntryEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getStorageEntry() {
+		return storageEntryEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getProductStorageEntry() {
+		return productStorageEntryEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getProductStorageEntry_Amount() {
+		return (EAttribute) productStorageEntryEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getProductStorageEntry_Product() {
+		return (EReference) productStorageEntryEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public ModelFactory getModelFactory() {
 		return (ModelFactory) getEFactoryInstance();
 	}
@@ -506,7 +600,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEReference(materialWarehouseEClass, MATERIAL_WAREHOUSE__MATERIAL_STORAGE);
 
 		materialStorageEClass = createEClass(MATERIAL_STORAGE);
-		createEReference(materialStorageEClass, MATERIAL_STORAGE__MATERIALS);
+		createEReference(materialStorageEClass, MATERIAL_STORAGE__MATERIAL_STORAGE_ENTRIES);
 
 		materialEClass = createEClass(MATERIAL);
 		createEAttribute(materialEClass, MATERIAL__ID);
@@ -522,7 +616,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEReference(productWarehouseEClass, PRODUCT_WAREHOUSE__PRODUCT_STORAGE);
 
 		productStorageEClass = createEClass(PRODUCT_STORAGE);
-		createEReference(productStorageEClass, PRODUCT_STORAGE__PRODUCTS);
+		createEReference(productStorageEClass, PRODUCT_STORAGE__PRODUCT_STORAGE_ENTRIES);
 
 		productEClass = createEClass(PRODUCT);
 		createEAttribute(productEClass, PRODUCT__ID);
@@ -532,6 +626,16 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEReference(productSpecificationEClass, PRODUCT_SPECIFICATION__PRODUCT);
 		createEReference(productSpecificationEClass, PRODUCT_SPECIFICATION__MATERIAL);
 		createEAttribute(productSpecificationEClass, PRODUCT_SPECIFICATION__AMOUNT);
+
+		materialStorageEntryEClass = createEClass(MATERIAL_STORAGE_ENTRY);
+		createEAttribute(materialStorageEntryEClass, MATERIAL_STORAGE_ENTRY__AMOUNT);
+		createEReference(materialStorageEntryEClass, MATERIAL_STORAGE_ENTRY__MATERIAL);
+
+		storageEntryEClass = createEClass(STORAGE_ENTRY);
+
+		productStorageEntryEClass = createEClass(PRODUCT_STORAGE_ENTRY);
+		createEAttribute(productStorageEntryEClass, PRODUCT_STORAGE_ENTRY__AMOUNT);
+		createEReference(productStorageEntryEClass, PRODUCT_STORAGE_ENTRY__PRODUCT);
 	}
 
 	/**
@@ -567,12 +671,14 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		materialStorageEClass.getESuperTypes().add(this.getStorage());
 		productWarehouseEClass.getESuperTypes().add(this.getWarehouse());
 		productStorageEClass.getESuperTypes().add(this.getStorage());
+		materialStorageEntryEClass.getESuperTypes().add(this.getStorageEntry());
+		productStorageEntryEClass.getESuperTypes().add(this.getStorageEntry());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(workcenterEClass, Workcenter.class, "Workcenter", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getWorkcenter_Id(), ecorePackage.getEInt(), "id", null, 0, 1, Workcenter.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+				!IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getWorkcenter_Name(), ecorePackage.getEString(), "name", null, 0, 1, Workcenter.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getWorkcenter_MaterialWarehouse(), this.getMaterialWarehouse(), null, "materialWarehouse", null,
@@ -588,7 +694,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEClass(materialWarehouseEClass, MaterialWarehouse.class, "MaterialWarehouse", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMaterialWarehouse_Id(), ecorePackage.getEInt(), "id", null, 0, 1, MaterialWarehouse.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+				!IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMaterialWarehouse_Name(), ecorePackage.getEString(), "name", null, 0, 1,
 				MaterialWarehouse.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
@@ -598,14 +704,14 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		initEClass(materialStorageEClass, MaterialStorage.class, "MaterialStorage", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getMaterialStorage_Materials(), this.getMaterial(), null, "materials", null, 0, -1,
-				MaterialStorage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMaterialStorage_MaterialStorageEntries(), this.getMaterialStorageEntry(), null,
+				"materialStorageEntries", null, 0, -1, MaterialStorage.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(materialEClass, Material.class, "Material", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMaterial_Id(), ecorePackage.getEInt(), "id", null, 0, 1, Material.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+				!IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMaterial_Name(), ecorePackage.getEString(), "name", null, 0, 1, Material.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -617,7 +723,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEClass(productWarehouseEClass, ProductWarehouse.class, "ProductWarehouse", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getProductWarehouse_Id(), ecorePackage.getEInt(), "id", null, 0, 1, ProductWarehouse.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+				!IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProductWarehouse_Name(), ecorePackage.getEString(), "name", null, 0, 1,
 				ProductWarehouse.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
@@ -627,13 +733,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		initEClass(productStorageEClass, ProductStorage.class, "ProductStorage", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getProductStorage_Products(), this.getProduct(), null, "products", null, 0, -1,
-				ProductStorage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProductStorage_ProductStorageEntries(), this.getProductStorageEntry(), null,
+				"productStorageEntries", null, 0, -1, ProductStorage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(productEClass, Product.class, "Product", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getProduct_Id(), ecorePackage.getEInt(), "id", null, 0, 1, Product.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+				!IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProduct_Name(), ecorePackage.getEString(), "name", null, 0, 1, Product.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -648,6 +754,27 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEAttribute(getProductSpecification_Amount(), ecorePackage.getEInt(), "amount", null, 0, 1,
 				ProductSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(materialStorageEntryEClass, MaterialStorageEntry.class, "MaterialStorageEntry", !IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getMaterialStorageEntry_Amount(), ecorePackage.getEInt(), "amount", null, 0, 1,
+				MaterialStorageEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMaterialStorageEntry_Material(), this.getMaterial(), null, "material", null, 1, 1,
+				MaterialStorageEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(storageEntryEClass, StorageEntry.class, "StorageEntry", IS_ABSTRACT, IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(productStorageEntryEClass, ProductStorageEntry.class, "ProductStorageEntry", !IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getProductStorageEntry_Amount(), ecorePackage.getEInt(), "amount", null, 0, 1,
+				ProductStorageEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProductStorageEntry_Product(), this.getProduct(), null, "product", null, 1, 1,
+				ProductStorageEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

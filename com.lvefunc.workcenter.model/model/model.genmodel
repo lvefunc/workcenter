@@ -23,7 +23,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//MaterialWarehouse/materialStorage"/>
     </genClasses>
     <genClasses ecoreClass="model.ecore#//MaterialStorage">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//MaterialStorage/materials"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//MaterialStorage/materialStorageEntries"/>
     </genClasses>
     <genClasses ecoreClass="model.ecore#//Material">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Material/id"/>
@@ -37,7 +37,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//ProductWarehouse/productStorage"/>
     </genClasses>
     <genClasses ecoreClass="model.ecore#//ProductStorage">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//ProductStorage/products"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//ProductStorage/productStorageEntries"/>
     </genClasses>
     <genClasses ecoreClass="model.ecore#//Product">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Product/id"/>
@@ -47,6 +47,15 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//ProductSpecification/product"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//ProductSpecification/material"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//ProductSpecification/amount"/>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//MaterialStorageEntry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//MaterialStorageEntry/amount"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//MaterialStorageEntry/material"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="model.ecore#//StorageEntry"/>
+    <genClasses ecoreClass="model.ecore#//ProductStorageEntry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//ProductStorageEntry/amount"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//ProductStorageEntry/product"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

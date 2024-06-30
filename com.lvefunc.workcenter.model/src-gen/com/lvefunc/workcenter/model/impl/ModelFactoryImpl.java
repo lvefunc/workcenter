@@ -71,6 +71,10 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 			return createProduct();
 		case ModelPackage.PRODUCT_SPECIFICATION:
 			return createProductSpecification();
+		case ModelPackage.MATERIAL_STORAGE_ENTRY:
+			return createMaterialStorageEntry();
+		case ModelPackage.PRODUCT_STORAGE_ENTRY:
+			return createProductStorageEntry();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -162,6 +166,28 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	public ProductSpecification createProductSpecification() {
 		ProductSpecificationImpl productSpecification = new ProductSpecificationImpl();
 		return productSpecification;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public MaterialStorageEntry createMaterialStorageEntry() {
+		MaterialStorageEntryImpl materialStorageEntry = new MaterialStorageEntryImpl();
+		return materialStorageEntry;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ProductStorageEntry createProductStorageEntry() {
+		ProductStorageEntryImpl productStorageEntry = new ProductStorageEntryImpl();
+		return productStorageEntry;
 	}
 
 	/**

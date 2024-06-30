@@ -9,6 +9,7 @@ import com.lvefunc.workcenter.model.ProductWarehouse;
 import com.lvefunc.workcenter.model.Workcenter;
 
 import java.util.Collection;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -40,6 +41,8 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * @generated
  */
 public class WorkcenterImpl extends MinimalEObjectImpl.Container implements Workcenter {
+	private static AtomicInteger idCounter = new AtomicInteger();
+
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -117,6 +120,7 @@ public class WorkcenterImpl extends MinimalEObjectImpl.Container implements Work
 	 */
 	protected WorkcenterImpl() {
 		super();
+		this.id = idCounter.getAndIncrement();
 	}
 
 	/**
@@ -137,19 +141,6 @@ public class WorkcenterImpl extends MinimalEObjectImpl.Container implements Work
 	@Override
 	public int getId() {
 		return id;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setId(int newId) {
-		int oldId = id;
-		id = newId;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.WORKCENTER__ID, oldId, id));
 	}
 
 	/**
@@ -308,9 +299,6 @@ public class WorkcenterImpl extends MinimalEObjectImpl.Container implements Work
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case ModelPackage.WORKCENTER__ID:
-			setId((Integer) newValue);
-			return;
 		case ModelPackage.WORKCENTER__NAME:
 			setName((String) newValue);
 			return;
@@ -336,9 +324,6 @@ public class WorkcenterImpl extends MinimalEObjectImpl.Container implements Work
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case ModelPackage.WORKCENTER__ID:
-			setId(ID_EDEFAULT);
-			return;
 		case ModelPackage.WORKCENTER__NAME:
 			setName(NAME_EDEFAULT);
 			return;

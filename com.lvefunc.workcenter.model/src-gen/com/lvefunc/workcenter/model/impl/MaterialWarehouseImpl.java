@@ -6,6 +6,8 @@ import com.lvefunc.workcenter.model.MaterialStorage;
 import com.lvefunc.workcenter.model.MaterialWarehouse;
 import com.lvefunc.workcenter.model.ModelPackage;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -30,6 +32,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * @generated
  */
 public class MaterialWarehouseImpl extends MinimalEObjectImpl.Container implements MaterialWarehouse {
+	private static AtomicInteger idCounter = new AtomicInteger();
+
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -87,6 +91,7 @@ public class MaterialWarehouseImpl extends MinimalEObjectImpl.Container implemen
 	 */
 	protected MaterialWarehouseImpl() {
 		super();
+		this.id = idCounter.getAndIncrement();
 	}
 
 	/**
@@ -107,19 +112,6 @@ public class MaterialWarehouseImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public int getId() {
 		return id;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setId(int newId) {
-		int oldId = id;
-		id = newId;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.MATERIAL_WAREHOUSE__ID, oldId, id));
 	}
 
 	/**
@@ -216,9 +208,6 @@ public class MaterialWarehouseImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case ModelPackage.MATERIAL_WAREHOUSE__ID:
-			setId((Integer) newValue);
-			return;
 		case ModelPackage.MATERIAL_WAREHOUSE__NAME:
 			setName((String) newValue);
 			return;
@@ -237,9 +226,6 @@ public class MaterialWarehouseImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case ModelPackage.MATERIAL_WAREHOUSE__ID:
-			setId(ID_EDEFAULT);
-			return;
 		case ModelPackage.MATERIAL_WAREHOUSE__NAME:
 			setName(NAME_EDEFAULT);
 			return;

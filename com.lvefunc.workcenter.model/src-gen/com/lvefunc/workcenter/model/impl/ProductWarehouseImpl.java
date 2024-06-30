@@ -6,6 +6,8 @@ import com.lvefunc.workcenter.model.ModelPackage;
 import com.lvefunc.workcenter.model.ProductStorage;
 import com.lvefunc.workcenter.model.ProductWarehouse;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -30,6 +32,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * @generated
  */
 public class ProductWarehouseImpl extends MinimalEObjectImpl.Container implements ProductWarehouse {
+	private static AtomicInteger idCounter = new AtomicInteger();
+
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -87,6 +91,7 @@ public class ProductWarehouseImpl extends MinimalEObjectImpl.Container implement
 	 */
 	protected ProductWarehouseImpl() {
 		super();
+		this.id = idCounter.getAndIncrement();
 	}
 
 	/**
@@ -107,19 +112,6 @@ public class ProductWarehouseImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public int getId() {
 		return id;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setId(int newId) {
-		int oldId = id;
-		id = newId;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.PRODUCT_WAREHOUSE__ID, oldId, id));
 	}
 
 	/**
@@ -215,9 +207,6 @@ public class ProductWarehouseImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case ModelPackage.PRODUCT_WAREHOUSE__ID:
-			setId((Integer) newValue);
-			return;
 		case ModelPackage.PRODUCT_WAREHOUSE__NAME:
 			setName((String) newValue);
 			return;
@@ -236,9 +225,6 @@ public class ProductWarehouseImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case ModelPackage.PRODUCT_WAREHOUSE__ID:
-			setId(ID_EDEFAULT);
-			return;
 		case ModelPackage.PRODUCT_WAREHOUSE__NAME:
 			setName(NAME_EDEFAULT);
 			return;
