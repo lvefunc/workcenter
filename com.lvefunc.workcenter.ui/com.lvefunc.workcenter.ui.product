@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="com.lvefunc.workcenter.ui" id="com.lvefunc.workcenter.ui.product" application="org.eclipse.e4.ui.workbench.swt.E4Application" version="1.0.0.qualifier" type="mixed" includeLaunchers="true">
+<product name="com.lvefunc.workcenter.ui" id="com.lvefunc.workcenter.ui.product" application="org.eclipse.e4.ui.workbench.swt.E4Application" version="1.0.0.qualifier" type="mixed" includeLaunchers="true" autoIncludeRequirements="true">
 
    <configIni use="default">
    </configIni>
@@ -22,5 +22,6 @@
    <features>
       <feature id="org.eclipse.e4.rcp"/>
    </features>
+
 
 </product>

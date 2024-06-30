@@ -3,15 +3,15 @@
   <children xsi:type="basic:TrimmedWindow" xmi:id="_c3AF0cjYEeSyMNYR5xypkQ" elementId="org.eclipse.e4.window.main" label="Workcenter" width="1024" height="768">
     <children xsi:type="basic:PartSashContainer" xmi:id="_1sbikDUyEe-wd5uQ3bfeSA" elementId="com.lvefunc.workcenter.ui.partsashcontainer.management" containerData="">
       <children xsi:type="basic:PartStack" xmi:id="_9RDKkDUyEe-wd5uQ3bfeSA" elementId="com.lvefunc.workcenter.ui.partstack.material" selectedElement="__F2wEDUyEe-wd5uQ3bfeSA">
-        <children xsi:type="basic:Part" xmi:id="__F2wEDUyEe-wd5uQ3bfeSA" elementId="com.lvefunc.workcenter.ui.part.material" label="Material management"/>
+        <children xsi:type="basic:Part" xmi:id="__F2wEDUyEe-wd5uQ3bfeSA" elementId="com.lvefunc.workcenter.ui.part.material" contributionURI="bundleclass://com.lvefunc.workcenter.ui/com.lvefunc.workcenter.ui.parts.MaterialManagementPart" label="Material management"/>
       </children>
       <children xsi:type="basic:PartStack" xmi:id="_9qEukDUyEe-wd5uQ3bfeSA" elementId="com.lvefunc.workcenter.ui.partstack.product" selectedElement="_-zKdkDUyEe-wd5uQ3bfeSA">
-        <children xsi:type="basic:Part" xmi:id="_-zKdkDUyEe-wd5uQ3bfeSA" elementId="com.lvefunc.workcenter.ui.part.product" label="Product management"/>
+        <children xsi:type="basic:Part" xmi:id="_-zKdkDUyEe-wd5uQ3bfeSA" elementId="com.lvefunc.workcenter.ui.part.product" contributionURI="bundleclass://com.lvefunc.workcenter.ui/com.lvefunc.workcenter.ui.parts.ProductManagementPart" label="Product management"/>
       </children>
     </children>
     <children xsi:type="basic:PartSashContainer" xmi:id="_3X7bEDUyEe-wd5uQ3bfeSA" elementId="com.lvefunc.workcenter.ui.partsashcontainer.workbench" horizontal="true">
       <children xsi:type="basic:PartStack" xmi:id="_-KLyADUyEe-wd5uQ3bfeSA" elementId="com.lvefunc.workcenter.ui.partstack.workbench" selectedElement="_-d9CkDUyEe-wd5uQ3bfeSA">
-        <children xsi:type="basic:Part" xmi:id="_-d9CkDUyEe-wd5uQ3bfeSA" elementId="com.lvefunc.workcenter.ui.part.workbench" label="Workbench"/>
+        <children xsi:type="basic:Part" xmi:id="_-d9CkDUyEe-wd5uQ3bfeSA" elementId="com.lvefunc.workcenter.ui.part.workbench" contributionURI="bundleclass://com.lvefunc.workcenter.ui/com.lvefunc.workcenter.ui.parts.WorkbenchPart" label="Workbench"/>
       </children>
     </children>
     <mainMenu xmi:id="_LkxyEDU3Ee-wd5uQ3bfeSA" elementId="com.lvefunc.workcenter.ui.menu.main">

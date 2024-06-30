@@ -18,5 +18,13 @@
          </property>
       </product>
    </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            class="com.lvefunc.workcenter.ui.parts.Workbench"
+            id="com.lvefunc.workcenter.ui.parts.Workbench"
+            name="New ViewPart">
+      </view>
+   </extension>
 
 </plugin>
