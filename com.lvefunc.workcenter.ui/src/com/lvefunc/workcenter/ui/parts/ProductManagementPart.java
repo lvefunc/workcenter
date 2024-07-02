@@ -1,5 +1,6 @@
 package com.lvefunc.workcenter.ui.parts;
 
+import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
@@ -8,31 +9,35 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 
-import com.lvefunc.workcenter.ui.controller.Controller;
+import com.lvefunc.workcenter.ui.service.WorkcenterService;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.inject.Inject;
+import jakarta.inject.Named;
 
 public class ProductManagementPart {
-	private Table table;
+	private Table pStorageTable;
 
 	@Inject
 	@Optional
 	@PostConstruct
-	public void postConstruct(Composite parent, Controller controller) {
-		parent.setLayout(new GridLayout(10, false));
+	public void postConstruct(Composite parent, WorkcenterService wService, @Named("applicationContext") IEclipseContext context) {
+		parent.setLayout(new GridLayout(10, true));
 
-		table = new Table(parent, SWT.BORDER | SWT.FULL_SELECTION);
-		table.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 10, 10));
-		table.setHeaderVisible(true);
-		table.setLinesVisible(true);
+		pStorageTable = new Table(parent, SWT.BORDER | SWT.FULL_SELECTION);
+		pStorageTable.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 10, 5));
+		pStorageTable.setHeaderVisible(true);
+		pStorageTable.setLinesVisible(true);
+		
+		context.set("pStorageTable", pStorageTable);
+		context.processWaiting();
+		
+		var pColumn = new TableColumn(pStorageTable, SWT.CENTER);
+		pColumn.setWidth(200);
+		pColumn.setText("Product");
 
-		TableColumn productColumn = new TableColumn(table, SWT.CENTER);
-		productColumn.setWidth(300);
-		productColumn.setText("Product");
-
-		TableColumn amountColumn = new TableColumn(table, SWT.CENTER);
-		amountColumn.setWidth(100);
-		amountColumn.setText("Amount");
+		var numColumn = new TableColumn(pStorageTable, SWT.CENTER);
+		numColumn.setWidth(200);
+		numColumn.setText("Amount");
 	}
 }

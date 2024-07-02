@@ -7,8 +7,10 @@ import org.eclipse.swt.widgets.Shell;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.inject.Inject;
+import jakarta.inject.Named;
 
 import org.eclipse.swt.widgets.Table;
+import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.swt.SWT;
@@ -19,50 +21,60 @@ import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Text;
 
-import com.lvefunc.workcenter.model.Material;
-import com.lvefunc.workcenter.ui.controller.Controller;
+import com.lvefunc.workcenter.ui.service.WorkcenterService;
 
 public class MaterialManagementPart {
-	private Table table;
-
+	private Table mStorageTable;
+	
 	@Inject
 	@Optional
 	@PostConstruct
-	public void postConstruct(Composite parent, Controller controller) {
-		parent.setLayout(new GridLayout(10, false));
+	public void postConstruct(Composite parent, WorkcenterService wService, @Named("applicationContext") IEclipseContext context) {
+		parent.setLayout(new GridLayout(10, true));
+		
+		mStorageTable = new Table(parent, SWT.BORDER | SWT.FULL_SELECTION);
+		mStorageTable.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 10, 9));
+		mStorageTable.setHeaderVisible(true);
+		mStorageTable.setLinesVisible(true);
+		
+		context.set("mStorageTable", this.mStorageTable);
+		context.processWaiting();
+		
+		var mColumn = new TableColumn(this.mStorageTable, SWT.CENTER);
+		mColumn.setWidth(200);
+		mColumn.setText("Material");
 
-		table = new Table(parent, SWT.BORDER | SWT.FULL_SELECTION);
-		table.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 10, 10));
-		table.setHeaderVisible(true);
-		table.setLinesVisible(true);
-
-		TableColumn materialColumn = new TableColumn(table, SWT.CENTER);
-		materialColumn.setWidth(300);
-		materialColumn.setText("Material");
-
-		TableColumn amountColumn = new TableColumn(table, SWT.CENTER);
-		amountColumn.setWidth(100);
-		amountColumn.setText("Amount");
-
-		Button createButton = new Button(parent, SWT.NONE);
+		var numColumn = new TableColumn(this.mStorageTable, SWT.CENTER);
+		numColumn.setWidth(200);
+		numColumn.setText("Amount");
+		
+		var createButton = new Button(parent, SWT.NONE);
+		createButton.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 2, 1));
 		createButton.setText("Create");
 
-		Button editButton = new Button(parent, SWT.NONE);
+		var editButton = new Button(parent, SWT.NONE);
+		editButton.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 2, 1));
 		editButton.setText("Edit");
 
-		Button deleteButton = new Button(parent, SWT.NONE);
+		var deleteButton = new Button(parent, SWT.NONE);
+		deleteButton.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 2, 1));
 		deleteButton.setText("Delete");
-
-		createButton.addListener(SWT.Selection, event -> {			
-			EditMaterialDialog editMaterialDialog = new EditMaterialDialog(new Shell(), "Create new material in storage");
-			editMaterialDialog.open();
-
-			Material material = controller.getMaterialsController().create(editMaterialDialog.getName());
-			controller.getMaterialsStorageController().add(material, editMaterialDialog.getAmount(), table);
+		
+		createButton.addListener(SWT.Selection, event -> {
+			var dialog = new EditDialog(new Shell(), "Create a material");
+			dialog.open();
+			
+			if (!dialog.isOkPressed())
+				return;
+			
+			var mService = wService.getMaterialService();
+			var mStorageService = wService.getMaterialStorageService();
+			
+			mStorageService.add(mService.create(dialog.getName()), dialog.getAmount());
 		});
 		
 		editButton.addListener(SWT.Selection, event -> {
-			TableItem[] selection = table.getSelection();
+			TableItem[] selection = mStorageTable.getSelection();
 			
 			if (selection.length == 0)
 				return;
@@ -71,45 +83,61 @@ public class MaterialManagementPart {
 			String name = selected.getText(0);
 			int amount = Integer.valueOf(selected.getText(1));
 			
-			EditMaterialDialog editMaterialDialog = new EditMaterialDialog(new Shell(), "Edit material in storage", name, amount);
-			editMaterialDialog.open();
-
-			Material material = controller.getMaterialsController().get(name);
-			material.setName(editMaterialDialog.getName());
-			controller.getMaterialsStorageController().update(material, editMaterialDialog.getAmount(), table);
+			var dialog = new EditDialog(new Shell(), "Edit selected material", name, amount);
+			dialog.open();
+			
+			if (!dialog.isOkPressed())
+				return;
+			
+			var mService = wService.getMaterialService();
+			var mStorageService = wService.getMaterialStorageService();
+			
+			var material = mService.get(name).orElseThrow(IllegalArgumentException::new);
+			
+			material.setName(dialog.getName());
+			mStorageService.update(material, dialog.getAmount());
 		});
 		
 		deleteButton.addListener(SWT.Selection, event -> {
-			TableItem[] selection = table.getSelection();
+			TableItem[] selection = mStorageTable.getSelection();
 			
 			if (selection.length == 0)
 				return;
 			
 			TableItem selected = selection[0];
 			String name = selected.getText(0);
-
-			Material material = controller.getMaterialsController().get(name);
-			int index = controller.getMaterialsController().indexOf(material);
-			controller.getMaterialsStorageController().remove(material, table);
-			controller.getMaterialsController().remove(index);
+			
+			var mService = wService.getMaterialService();
+			var mStorageService = wService.getMaterialStorageService();
+			
+			var material = mService.get(name).orElseThrow(IllegalArgumentException::new);
+			var index = mService.indexOf(material);
+			
+			mStorageService.remove(material);
+			mService.remove(index);
 		});
 	}
 
-	public static class EditMaterialDialog extends Dialog {
+	public static class EditDialog extends Dialog {
+		private static final String DEFAULT_NAME = "";
+		private static final int DEFAULT_AMOUNT = 0;
+		
 		private String header;
-		private Text nameField;
-		private Text amountField;
-		private String name = "";
-		private int amount = 0;
+		
+		private Text nameText;
+		private Text amountText;
+		
+		private String name = DEFAULT_NAME;
+		private int amount = DEFAULT_AMOUNT;
+		private boolean okPressed;
 
-		public EditMaterialDialog(Shell parent, String header) {
+		public EditDialog(Shell parent, String header) {
 			super(parent);
 			this.header = header;
 		}
-		
-		public EditMaterialDialog(Shell parent, String header, String name, int amount) {
-			super(parent);
-			this.header = header;
+
+		public EditDialog(Shell parent, String header, String name, int amount) {
+			this(parent, header);
 			this.name = name;
 			this.amount = amount;
 		}
@@ -121,49 +149,37 @@ public class MaterialManagementPart {
 
 		@Override
 		protected Control createDialogArea(Composite parent) {
-			Composite composite = (Composite) super.createDialogArea(parent);
+			var composite = (Composite) super.createDialogArea(parent);
+			composite.setLayout(new GridLayout(2, false));
 
-			GridLayout layout = (GridLayout) composite.getLayout();
-			layout.numColumns = 2;
-			layout.makeColumnsEqualWidth = true;
-
-			Label nameLabel = new Label(composite, SWT.RIGHT);
+			var nameLabel = new Label(composite, SWT.NONE);
 			nameLabel.setText("Name");
 
-			nameField = new Text(composite, SWT.SINGLE | SWT.BORDER);
-			nameField.setText(name);
+			nameText = new Text(composite, SWT.BORDER);
+			nameText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+			nameText.setText(name);
 
-			Label amountLabel = new Label(composite, SWT.RIGHT);
+			var amountLabel = new Label(composite, SWT.NONE);
 			amountLabel.setText("Amount");
 
-			amountField = new Text(composite, SWT.SINGLE | SWT.BORDER);
-			amountField.addListener(SWT.KeyDown, event -> event.doit = Character.isDigit(event.character));
-			amountField.setText(String.valueOf(amount));
-
-			GridData data = new GridData(SWT.FILL, SWT.FILL, true, false);
-			nameField.setLayoutData(data);
+			amountText = new Text(composite, SWT.SINGLE | SWT.BORDER);
+			amountText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+			amountText.addListener(SWT.KeyDown, event -> event.doit = Character.isISOControl(event.character) || Character.isDigit(event.character));
+			amountText.setText(String.valueOf(amount));
 
 			return composite;
 		}
 
 		@Override
 		protected void okPressed() {
-			this.name = nameField.getText();
-			this.amount = Integer.valueOf(amountField.getText());
+			this.name = nameText.getText();
+			this.amount = Integer.valueOf(amountText.getText());
+			this.okPressed = !okPressed;
 			super.okPressed();
 		}
 
-		@Override
-		protected void cancelPressed() {
-			super.cancelPressed();
-		}
-
-		public String getName() {
-			return name;
-		}
-
-		public int getAmount() {
-			return amount;
-		}
+		public String getName() { return this.name; }
+		public int getAmount() { return this.amount; }
+		public boolean isOkPressed() { return this.okPressed; }
 	}
 }
