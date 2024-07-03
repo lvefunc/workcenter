@@ -27,6 +27,9 @@ replay_pid*
 .classpath
 .project
 .settings/
+
+# Tycho
+target/
  
 # Intellij
 .idea/
