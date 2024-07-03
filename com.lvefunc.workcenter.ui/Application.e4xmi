@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_c3AF0MjYEeSyMNYR5xypkQ" elementId="org.eclipse.e4.application" bindingContexts="_c3AF2cjYEeSyMNYR5xypkQ">
+<application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmi:id="_c3AF0MjYEeSyMNYR5xypkQ" elementId="org.eclipse.e4.application" bindingContexts="_c3AF2cjYEeSyMNYR5xypkQ">
   <children xsi:type="basic:TrimmedWindow" xmi:id="_c3AF0cjYEeSyMNYR5xypkQ" elementId="org.eclipse.e4.window.main" label="Workcenter" width="1024" height="768">
     <children xsi:type="basic:PartSashContainer" xmi:id="_1sbikDUyEe-wd5uQ3bfeSA" elementId="com.lvefunc.workcenter.ui.partsashcontainer.management" containerData="">
       <children xsi:type="basic:PartStack" xmi:id="_9RDKkDUyEe-wd5uQ3bfeSA" elementId="com.lvefunc.workcenter.ui.partstack.material" selectedElement="__F2wEDUyEe-wd5uQ3bfeSA">
@@ -14,12 +14,6 @@
         <children xsi:type="basic:Part" xmi:id="_-d9CkDUyEe-wd5uQ3bfeSA" elementId="com.lvefunc.workcenter.ui.part.workbench" contributionURI="bundleclass://com.lvefunc.workcenter.ui/com.lvefunc.workcenter.ui.parts.WorkbenchPart" label="Workbench"/>
       </children>
     </children>
-    <mainMenu xmi:id="_LkxyEDU3Ee-wd5uQ3bfeSA" elementId="com.lvefunc.workcenter.ui.menu.main">
-      <children xsi:type="menu:Menu" xmi:id="_s9itkDU3Ee-wd5uQ3bfeSA" elementId="com.lvefunc.workcenter.ui.menu.file" label="File">
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_wwyVsDU3Ee-wd5uQ3bfeSA" elementId="com.lvefunc.workcenter.ui.handledmenuitem.exit" label="Exit"/>
-      </children>
-      <children xsi:type="menu:HandledMenuItem" xmi:id="_3k_0cDU3Ee-wd5uQ3bfeSA" elementId="com.lvefunc.workcenter.ui.handledmenuitem.about" label="About"/>
-    </mainMenu>
   </children>
   <rootContext xmi:id="_c3AF2cjYEeSyMNYR5xypkQ" elementId="org.eclipse.ui.contexts.dialogAndWindow" name="In Dialog and Windows">
     <children xmi:id="_c3AF2sjYEeSyMNYR5xypkQ" elementId="org.eclipse.ui.contexts.window" name="In Windows"/>
